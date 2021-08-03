@@ -9,15 +9,40 @@ import {
   Radio,
   FormGroup,
   RadioGroup,
+  Divider,
 } from '@material-ui/core'
 import SendRoundedIcon from '@material-ui/icons/SendRounded'
 import './App.css'
+import PersistentDrawerLeft from './Components/nav'
 import { myList } from './notes.js'
 import { useStyle } from './style/matHook'
 import { useState, useEffect } from 'react'
+import Plan from './Components/plan'
+
+import TableRow from './Components/table'
+import TableHeader from './Components/tableHeader'
+import Search from './Components/search'
+const tableData = [
+  { date: 12, name: 'business', num: 12, coach: '', progress: 12 },
+  { date: 123, name: 'sport', num: 22, coach: '', progress: 1762 },
+  { date: 12, name: 'dodta', num: 2, coach: '', progress: 172 },
+  { date: -2, name: 'pivo', num: 12, coach: '', progress: 72 },
+]
 
 function App() {
-  let [name, setName] = useState('')
+  return (
+    <div>
+      <PersistentDrawerLeft />
+      <Plan />
+      <Search />
+      <TableHeader color='textPrimary' />
+      {tableData.map((titem) => (
+        <TableRow item={titem} color='textSecondary' />
+      ))}
+    </div>
+  )
+}
+/* let [name, setName] = useState('')
   let [message, setMessage] = useState('')
   let [radioValue, setRadioValue] = useState('Putin')
   let [list, setList] = useState(myList)
@@ -99,6 +124,6 @@ function App() {
       </form>
     </Container>
   )
-}
+} */
 
 export default App
