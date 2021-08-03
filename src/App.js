@@ -36,8 +36,8 @@ function App() {
       <Plan />
       <Search />
       <TableHeader color='textPrimary' />
-      {tableData.map((titem) => (
-        <TableRow item={titem} color='textSecondary' />
+      {tableData.map((item, i) => (
+        <TableRow item={item} key={i} color='textSecondary' />
       ))}
     </div>
   )

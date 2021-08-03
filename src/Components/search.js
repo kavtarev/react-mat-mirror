@@ -46,100 +46,124 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     marginBottom: 16,
   },
+  btn: {
+    display: 'none',
+    position: 'absolute',
+  },
 }))
 export default function Search() {
   const [currency, setCurrency] = useState('EUR')
+  let [textValue, setTextValue] = useState('')
   const classes = useStyles()
   const handleChange = (event) => {
     setCurrency(event.target.value)
   }
+  const handleText = (e) => {
+    setTextValue(e.target.value)
+    console.log(textValue)
+  }
+  const formHandler = (e) => {
+    e.preventDefault()
+
+    console.log(e.target[0].value)
+    console.log(e.target[1].value)
+    console.log(e.target[2].value)
+    console.log(e.target[3].value)
+  }
+
   return (
     <Container className={classes.container}>
-      <Grid container>
-        <Grid item xs={12} sm={2}>
-          <TextField
-            className={classes.search}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position='start'>
-                  <TuneIcon data-unhide />
-                </InputAdornment>
-              ),
-            }}
-            id='standard-basic'
-            placeholder='Placeholder'
-          />
+      <form action='' onSubmit={formHandler}>
+        <Grid container>
+          <Grid item xs={12} sm={2}>
+            <TextField
+              value={textValue}
+              onChange={handleText}
+              className={classes.search}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position='start'>
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position='start'>
+                    <TuneIcon data-unhide />
+                  </InputAdornment>
+                ),
+              }}
+              id='standard-basic'
+              placeholder='Placeholder'
+            />
+          </Grid>
+
+          <Grid data-hide item xs={12} sm={2}>
+            <TextField
+              label='Программа'
+              className={classes.select}
+              id='standard-select-currency'
+              select
+              value={currency}
+              onChange={handleChange}
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+          <Grid data-hide item xs={12} sm={2}>
+            <TextField
+              label='Период'
+              className={classes.select}
+              id='standard-select-currency'
+              select
+              value={currency}
+              onChange={handleChange}
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+          <Grid data-hide item xs={12} sm={2}>
+            <TextField
+              label='Статус'
+              className={classes.select}
+              id='standard-select-currency'
+              select
+              value={currency}
+              onChange={handleChange}
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+          <Grid data-unhide item xs={12} sm={2}>
+            <TextField
+              label='Сортировка'
+              className={classes.select}
+              id='standard-select-currency'
+              select
+              value={currency}
+              onChange={handleChange}
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
         </Grid>
-        <Grid data-hide item xs={12} sm={2}>
-          <TextField
-            label='Программа'
-            className={classes.select}
-            id='standard-select-currency'
-            select
-            value={currency}
-            onChange={handleChange}
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
-        <Grid data-hide item xs={12} sm={2}>
-          <TextField
-            label='Период'
-            className={classes.select}
-            id='standard-select-currency'
-            select
-            value={currency}
-            onChange={handleChange}
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
-        <Grid data-hide item xs={12} sm={2}>
-          <TextField
-            label='Статус'
-            className={classes.select}
-            id='standard-select-currency'
-            select
-            value={currency}
-            onChange={handleChange}
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
-        <Grid data-unhide item xs={12} sm={2}>
-          <TextField
-            label='Сортировка'
-            className={classes.select}
-            id='standard-select-currency'
-            select
-            value={currency}
-            onChange={handleChange}
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
-      </Grid>
+        <button className={classes.btn}></button>
+      </form>
     </Container>
   )
 }

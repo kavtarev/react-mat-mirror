@@ -32,7 +32,7 @@ export default function Plan() {
           variant='body1'
           component='h2'
           color='textSecondary'
-          align='start'
+          align='left'
         >
           Glavnaya - Planirovanie
         </Typography>
