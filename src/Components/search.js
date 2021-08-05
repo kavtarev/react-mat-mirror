@@ -66,9 +66,7 @@ export default function Search() {
     e.preventDefault()
 
     console.log(e.target[0].value)
-    console.log(e.target[1].value)
-    console.log(e.target[2].value)
-    console.log(e.target[3].value)
+ 
   }
 
   return (
