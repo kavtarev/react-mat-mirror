@@ -1,10 +1,4 @@
-import {
-  Button,
-  Container,
-  Grid,
-  makeStyles,
-  Typography,
-} from '@material-ui/core'
+import { Container, Grid, makeStyles } from '@material-ui/core'
 import RotateLeftIcon from '@material-ui/icons/RotateLeft'
 import React from 'react'
 const useStyles = makeStyles({
