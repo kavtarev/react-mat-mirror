@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
   },
 }))
-export default function Search() {
+export default function ParticipantsSearch() {
   const [currency, setCurrency] = useState('EUR')
   let [textValue, setTextValue] = useState('')
   const classes = useStyles()
@@ -72,7 +72,7 @@ export default function Search() {
     <Container className={classes.container}>
       <form action='' onSubmit={formHandler}>
         <Grid container>
-          <Grid item xs={12} sm={2}>
+          <Grid item xs={6}>
             <TextField
               value={textValue}
               onChange={handleText}
@@ -94,7 +94,7 @@ export default function Search() {
             />
           </Grid>
 
-          <Grid data-hide item xs={12} sm={2}>
+          <Grid data-hide item xs={6}>
             <TextField
               label='Программа'
               className={classes.select}
@@ -110,7 +110,7 @@ export default function Search() {
               ))}
             </TextField>
           </Grid>
-          <Grid data-hide item xs={12} sm={2}>
+          <Grid data-hide item xs={6}>
             <TextField
               label='Период'
               className={classes.select}
@@ -126,25 +126,9 @@ export default function Search() {
               ))}
             </TextField>
           </Grid>
-          <Grid data-hide item xs={12} sm={2}>
+          <Grid data-hide item xs={6}>
             <TextField
               label='Статус'
-              className={classes.select}
-              id='standard-select-currency'
-              select
-              value={currency}
-              onChange={handleChange}
-            >
-              {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
-          <Grid data-unhide item xs={12} sm={2}>
-            <TextField
-              label='Сортировка'
               className={classes.select}
               id='standard-select-currency'
               select

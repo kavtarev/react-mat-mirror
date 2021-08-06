@@ -9,6 +9,7 @@ import Choice from './partials/choiceComponent'
 import CheckIcon from '@material-ui/icons/Check'
 import CloseIcon from '@material-ui/icons/Close'
 import Osnova from './osnovnoe'
+import Partisipants from './uchactniki'
 
 const useStyle = makeStyles({
   container: {
@@ -52,7 +53,7 @@ export default function Popup(props) {
       />
 
       {active && <Osnova />}
-      {!active && 'not so active'}
+      {!active && <Partisipants />}
     </Container>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import FormControlSelect from '../formControlSelect'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -50,7 +51,7 @@ export default function ThreeSelect(props) {
         />
       </form>
       <form>
-        <input type='text' />
+        <FormControlSelect />
       </form>
     </div>
   )
