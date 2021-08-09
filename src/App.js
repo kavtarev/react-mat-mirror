@@ -1,10 +1,11 @@
 import './App.css'
-import PersistentDrawerLeft from './Components/nav'
-import Plan from './Components/plan'
+//import PersistentDrawerLeft from './Components/header/partials/nav'
+//import Plan from './Components/header/partials/plan'
 
 import TableRow from './Components/table'
 import TableHeader from './Components/tableHeader'
 import Search from './Components/search'
+import Header from './Components/header/header'
 const tableData = [
   { date: 12, name: 'business', num: 12, coach: '', progress: 12 },
   { date: 123, name: 'sport', num: 22, coach: '', progress: 1762 },
@@ -14,7 +15,11 @@ const tableData = [
 
 function App() {
   return (
-    <div>
+    <>
+      <Header />
+    </>
+  )
+  /*   <div>
       <PersistentDrawerLeft />
       <Plan />
       <Search />
@@ -22,8 +27,7 @@ function App() {
       {tableData.map((item, i) => (
         <TableRow item={item} key={i} color='textSecondary' />
       ))}
-    </div>
-  )
+    </div> */
 }
 /* let [name, setName] = useState('')
   let [message, setMessage] = useState('')
